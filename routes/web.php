@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\Admin\EquiposLive;
+use App\Livewire\Admin\InformacionLive;
+use App\Livewire\Admin\SoportesLive;
+use App\Livewire\Admin\UsuariosLive;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,4 +18,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/equipos', [EquiposLive::class, 'render'])->name('equipos');
+    Route::get('/soportes', [SoportesLive::class, 'render'])->name('soportes');
+    Route::get('/informacion', [InformacionLive::class, 'render'])->name('informacion');
+    Route::get('/usuarios', [UsuariosLive::class, 'render'])->name('usuarios');
 });
