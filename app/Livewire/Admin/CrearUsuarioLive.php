@@ -56,18 +56,19 @@ class CrearUsuarioLive extends Component
             'remember_token'    => Str::random(10),
         ]);
 
-        if ($this->role === 1) {
+        if ($this->role == 1) {
             $user->assignRole('Admin');
-        } elseif ($this->role === 2) {
+        } elseif ($this->role == 2) {
             $user->assignRole('Support');
-        } elseif ($this->role === 3) {
-            $user->assignRole('Usuario');
+        } elseif ($this->role == 3) {
+            $user->assignRole('User');
         }
 
         DB::commit();
 
         $this->reset(['name', 'email', 'password', 'password_confirmation', 'role']);
         session()->flash('message', '¡Usuario creado correctamente!');
+        $this->dispatch('updated');
     }
 
     public function close()

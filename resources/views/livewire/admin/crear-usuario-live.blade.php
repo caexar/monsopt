@@ -6,7 +6,7 @@
     <x-dialog-modal maxWidth="md" wire:model="open">
         <x-slot name="title">
             <h2 class="text-lg font-semibold">
-                {{ __('Crear Usuario') }}
+                Crear Usuario
             </h2>
         </x-slot>
 
