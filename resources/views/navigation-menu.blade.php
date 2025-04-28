@@ -16,21 +16,33 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('equipos') }}" :active="request()->routeIs('equipos')">
-                        {{ __('Equipos') }}
-                    </x-nav-link>
+                    @role('Admin')
+                        <x-nav-link href="{{ route('equipos') }}" :active="request()->routeIs('equipos')">
+                            {{ __('Equipos') }}
+                        </x-nav-link>
 
-                    <x-nav-link href="{{ route('soportes') }}" :active="request()->routeIs('soportes')">
-                        {{ __('Soportes') }}
-                    </x-nav-link>
+                        <x-nav-link href="{{ route('soportes') }}" :active="request()->routeIs('soportes')">
+                            {{ __('Soportes') }}
+                        </x-nav-link>
 
-                    <x-nav-link href="{{ route('informacion') }}" :active="request()->routeIs('informacion')">
-                        {{ __('Informacion') }}
-                    </x-nav-link>
+                        <x-nav-link href="{{ route('informacion') }}" :active="request()->routeIs('informacion')">
+                            {{ __('Informacion') }}
+                        </x-nav-link>
 
-                    <x-nav-link href="{{ route('usuarios') }}" :active="request()->routeIs('usuarios')">
-                        {{ __('Usuarios') }}
-                    </x-nav-link>
+                        <x-nav-link href="{{ route('usuarios') }}" :active="request()->routeIs('usuarios')">
+                            {{ __('Usuarios') }}
+                        </x-nav-link>
+                    @endrole
+
+                    @role('User')
+                        <x-nav-link href="{{ route('soportes.user') }}" :active="request()->routeIs('soportes.user')">
+                            {{ __('Crear Soportes') }}
+                        </x-nav-link>
+
+                        <x-nav-link href="{{ route('informacion.user') }}" :active="request()->routeIs('informacion.user')">
+                            {{ __('Informacion') }}
+                        </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
