@@ -30,6 +30,8 @@
                     <td class="w-1/4 py-2">
                         <div class="flex gap-2">
                             @livewire('admin.borrar-usuario-live', ['user' => $user], key('delete-user-'.$user->id))
+
+                            @livewire('admin.editar-usuario-live', ['user' => $user], key('edit-user-'.$user->id))
                         </div>
                     </td>
                 </tr>
