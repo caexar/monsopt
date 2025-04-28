@@ -34,6 +34,16 @@
                         </x-nav-link>
                     @endrole
 
+                    @role('Support')
+                        <x-nav-link href="{{ route('solicitudes') }}" :active="request()->routeIs('solicitudes')">
+                            {{ __('Solicitudes') }}
+                        </x-nav-link>
+
+                        <x-nav-link href="{{ route('informe') }}" :active="request()->routeIs('informe')">
+                            {{ __('Informe') }}
+                        </x-nav-link>
+                    @endrole
+
                     @role('User')
                         <x-nav-link href="{{ route('soportes.user') }}" :active="request()->routeIs('soportes.user')">
                             {{ __('Crear Soportes') }}
