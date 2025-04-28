@@ -20,25 +20,19 @@
             [x-cloak] { display: none; }
         </style>
     </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+    <body>
+        <div class="relative w-full h-screen overflow-hidden bg-gray-100">
+            <div class="flex flex-col w-full">
+                {{-- header --}}
+                @livewire('navigation-menu')
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                {{-- Page Content --}}
+                <div class="overflow-y-auto size-full scrollbar">
+                    <main class="max-w-6xl px-4 py-10 mx-auto lg:px-0">
+                        {{ $slot }}
+                    </main>
+                </div>
+            </div>
         </div>
 
         @stack('modals')
