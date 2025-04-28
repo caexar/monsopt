@@ -3,23 +3,21 @@
 namespace App\Livewire\Admin;
 
 use App\Models\User;
+use Livewire\WithPagination;
 use Livewire\Component;
 
 class DashboardLive extends Component
 {
-    public $users;
+    use WithPagination;
 
-    protected $listeners = ['updated' => 'mount'];
+    public $numberOfPaginatorsRendered = [];
 
-    public function mount()
-    {
-        $this->users = User::all();
-    }
+    protected $listeners = ['updated' => '$refresh']; // <-- aquí corregido
 
     public function render()
     {
         return view('livewire.admin.dashboard-live', [
-            'users' => $this->users,
+            'users' => User::paginate(10),
         ]);
     }
 }

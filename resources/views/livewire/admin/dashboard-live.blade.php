@@ -6,6 +6,7 @@
     <table class="w-full mt-6">
         <thead>
             <tr>
+                <th class="py-2 pr-4 text-sm border-b border-gray-400 text-start">#</th>
                 <th class="py-2 text-sm border-b border-gray-400 text-start">Nombre</th>
                 <th class="py-2 text-sm border-b border-gray-400 text-start">Email</th>
                 <th class="py-2 text-sm border-b border-gray-400 text-start">Rol</th>
@@ -15,6 +16,10 @@
         <tbody class="divide-y divide-gray-200">
             @foreach ($users as $user)
                 <tr wire:key="user-{{ $user->id }}" class="text-sm">
+                    <td class="py-2 pr-4">
+                        {{ $loop->iteration }}
+                    </td>
+
                     <td class="w-1/4 py-2">
                         {{ $user->name }}
                     </td>
@@ -38,4 +43,7 @@
             @endforeach
         </tbody>
     </table>
+    <div class="mt-4">
+        {{ $users->links('components.utils.paginate') }}
+    </div>
 </div>
