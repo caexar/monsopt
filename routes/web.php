@@ -33,4 +33,8 @@ Route::middleware([
 
     Route::get('/soportes-crear', [UserSoportesLive::class, 'render'])->name('soportes.user');
     Route::get('/informacion-user', [UserInformacionLive::class, 'render'])->name('informacion.user');
+
+    Route::get('/inventarios', function () {
+        return \App\Models\Inventario::all();
+    });
 });

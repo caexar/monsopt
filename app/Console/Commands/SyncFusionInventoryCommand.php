@@ -207,7 +207,7 @@ class SyncGlpiInventoryCommand extends Command
                               $totalSynced++;
                          }
                          else {
-                             $this->warn("Equipo sin identificador único (ID GLPI: {$computer['id'] ?? 'N/A'}, Nombre: {$computer['name'] ?? 'N/A'}) - Omitido.");
+                             $this->warn("Equipo sin identificador único (ID GLPI: " . ($computer['id'] ?? 'N/A') . ", Nombre: " . ($computer['name'] ?? 'N/A') . ") - Omitido.");
                               Log::warning('Equipo omitido por falta de serial/GLPI ID', ['glpi_id' => $computer['id'] ?? null, 'name' => $computer['name'] ?? null]);
                               $totalFailed++;
                          }
