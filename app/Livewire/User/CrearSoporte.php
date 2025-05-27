@@ -55,6 +55,7 @@ class CrearSoporte extends Component
             'telefono_solicitante' => 'required',
             'descripcion' => 'required',
             'fecha_solicitud_inicio' => 'required|date|after_or_equal:today',
+            'fecha_solicitud_fin' => 'nullable|date|after_or_equal:fecha_solicitud_inicio',
         ],
         [
             'id_pc.required' => 'Seleccione un equipo.',
